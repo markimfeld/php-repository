@@ -128,3 +128,4 @@ INSERT INTO encargos VALUES(null, 7, 2, 1, CURDATE());
 INSERT INTO encargos VALUES(null, 7, 5, 1, CURDATE());
 INSERT INTO encargos VALUES(null, 7, 6, 1, CURDATE());
 INSERT INTO encargos VALUES(null, 2, 7, 1, CURDATE());
+INSERT INTO encargos VALUES(null, 1, 7, 1, CURDATE());

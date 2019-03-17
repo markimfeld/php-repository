@@ -4,3 +4,6 @@
 */
 
 
+SELECT c.marca, cl.nombre FROM encargos e
+INNER JOIN clientes cl ON cl.id = e.cliente_id
+INNER JOIN coches c ON c.id=e.coche_id;
