@@ -20,7 +20,20 @@ mysqli_query($conexion, "SET NAMES 'utf8'");
 $query = mysqli_query($conexion, "SELECT * FROM notas");
 
 while($nota = mysqli_fetch_assoc($query)) {
-    var_dump($nota).'<br />';
+    //var_dump($nota).'<br />';
+    echo "<h2>".$nota['titulo']."</h2>";
+    echo $nota['descripcion'].'<br />';
+}
+
+//INSERTAR DATOS EN LA BASE DE DATOS
+$insert = "INSERT INTO notas VALUES(null, 'Nota desde PHP', 'Esto es una nota de PHP', 'green')";
+$query = mysqli_query($conexion, $insert);
+
+echo '<br />';
+if($insert) {
+    echo "DATOS INSERTADOS CORRECTAMENTE";
+} else {
+    echo "DATOS NO INSERTADOS";
 }
 
 ?>
