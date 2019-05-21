@@ -3,11 +3,18 @@
 //recoger por POST los datos que me llegan
 //comprobar en general si existen datos por post
 if (isset($_POST)) {
+    //cargar conexion
+    require_once 'includes/conexion.php';
+    
+    //iniciar sesión
+    if(!isset($_SESSION)) {
+        session_start();
+    }
     //verifico que existan los datos de cada caja
-    $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
-    $apellidos = isset($_POST['apellidos']) ? $_POST['apellidos'] : false;
-    $email = isset($_POST['email']) ? $_POST['email'] : false;
-    $password = isset($_POST['password']) ? $_POST['password'] : false;
+    $nombre = isset($_POST['nombre']) ? mysqli_real_escape_string($db, $_POST['nombre']) : false;
+    $apellidos = isset($_POST['apellidos']) ? mysqli_real_escape_string($db, $_POST['apellidos']) : false;
+    $email = isset($_POST['email']) ? mysqli_real_escape_string($db, trim($_POST['email'])) : false;
+    $password = isset($_POST['password']) ? mysqli_real_escape_string($db, $_POST['password']) : false;
 
     //array de errores
     $errores = array();
@@ -24,7 +31,7 @@ if (isset($_POST)) {
         $apellido_validado = true;
     } else {
         $apellido_validado = false;
-        $errores['Apellidos'] = "El apellido no es válido";
+        $errores['apellidos'] = "El apellido no es válido";
     }
     //validar email
     if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -32,23 +39,35 @@ if (isset($_POST)) {
     } else {
         $email_validado = false;
         $errores['email'] = "El email no es válido";
-    }
 
-
-    //validar email
+    }    //validar email
     if (!empty($password)) {
         $password = true;
     } else {
         $password_validado = false;
-        $errores ['La contraseña'];
+        $errores ['password'] = "La contraseña esta vacia";
     }
 
     $guardar_usuario = false;
     if (count($errores) == 0) {
         $guardar_usuario = true;
+
+        //CIFRAR LA CONTRASEÑA
+        $password_segura = password_hash($password, PASSWORD_BCRYPT, ['cost' => 4]);
+
+        //INSERTAR USUARIOS EN LA TABLA DE LA BASE DE DATOS
+        $sql = "INSERT INTO usuarios VALUES(null, '$nombre', '$apellidos', '$email', '$password_segura', CURDATE());";
+        $guardar = mysqli_query($db, $sql);
+
+        if ($guardar) {
+            $_SESSION['completado'] = "El registro se ha completado con éxito.";
+        } else {
+            $_SESSION['errores']['general'] = "Fallo al guardar el usuario!!";
+        }
     } else {
         $_SESSION['errores'] = $errores;
-        header('Location: index.php');
     }
 }
+
+header('Location: index.php');
 ?>

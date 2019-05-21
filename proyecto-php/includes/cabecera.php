@@ -1,5 +1,5 @@
 <?php require_once 'conexion.php'; ?>
-
+<?php session_start(); ?>
 <!DOCTYPE HTML>
 <html lang="es">
     <head>

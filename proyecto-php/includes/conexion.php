@@ -2,8 +2,8 @@
 //conexion
 $server = 'localhost';
 $username = 'root';
-$password = '';
-$database = 'blog_master';
+$password = 'admin';
+$database = 'blog';
 $db = mysqli_connect($server, $username, $password, $database);
 
 mysqli_query($db, "SET NAMES 'utf8'");
