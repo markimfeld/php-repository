@@ -1,0 +1,15 @@
+body {
+    background-color: rgb(228, 225, 196);
+}
+
+.main-container {
+    width: 800px;
+    margin: auto;
+}
+h1 {
+    text-align: center;
+}
+
+.alumno {
+    width: 400px;
+}

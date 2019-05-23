@@ -5,7 +5,7 @@ $n1 = $_POST['numero1'];
 $n2 = $_POST['numero2'];
 
 if(isset($_REQUEST['sumar'])){
-    echo '<h1>'.sumar($n1, $n2).'</h1>';
+    echo '<div class="resultado"><h1>Resultado: '.sumar($n1, $n2).'</h1></div>';
 } else if(isset($_REQUEST['restar'])) {
     echo restar($n1, $n2);
 } else if(isset($_REQUEST['multiplicar'])) {
