@@ -1,0 +1,9 @@
+body {
+    background-color: rgb(236, 234, 213);
+
+}
+
+.contenedor-principal {
+    width: 500px;
+    margin: auto;
+}
