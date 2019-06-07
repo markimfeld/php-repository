@@ -27,7 +27,7 @@ $menu->cargarOpcion("https://www.google.com", "Google");
 $menu->cargarOpcion("https://www.youtube.com", "Youtube");
 
 $menu->mostrarHorizontal();
-
+// $menu->mostrarVertical();
 
 ?>
 

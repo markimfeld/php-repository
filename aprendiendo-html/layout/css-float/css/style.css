@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+header {
+    background-color: #666;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+section {
+    width: 100%;
+}
+
+nav {
+    width: 30%;
+    background: #ccc;
+    float: left;
+    height: 300px;
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+article {
+    float: left;
+    padding: 20px;
+    width: 70%;
+    height: 300px;
+}
+
+.fantasma {
+    clear: both;
+}
+footer {
+    background-color: #777;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    nav, article {
+        width: 100%;
+        height: auto;
+    }
+}

@@ -1,0 +1,15 @@
+a {
+    box-sizing: border-box;
+    display: block;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(221, 107, 107);
+    color: white;
+    padding: 25px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+
+a:hover {
+    background-color: gray;
+}

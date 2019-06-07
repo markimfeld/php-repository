@@ -1,0 +1,45 @@
+/* img {
+    max-width: 100%;
+}
+
+p {
+    font-size: 10vw;
+} */
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    text-align: center;
+}
+
+.menu {
+    float: left;
+    background-color: rgb(37, 120, 214);
+    padding: 20px;
+    width: 20%;
+}
+
+.main-content {
+    float: left;
+    background-color: white;
+    padding: 20px;
+    width: 60%;
+}
+
+.right-content {
+    float: left;
+    background-color: palegreen;
+    padding: 20px;
+    width: 20%;
+}
+
+@media screen and (max-width: 600px) {
+    .menu, .main-content, .right-content {
+        width: 100%;
+    }
+}

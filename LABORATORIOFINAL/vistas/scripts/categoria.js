@@ -78,21 +78,21 @@ function listar()
 function guardaryeditar(e)
 {
     e.preventDefault(); //No se activará la acción predeterminada del evento
-    $("#btnGuardar").prop("disable",true);
+    $("#btnGuardar").prop("disabled",true);
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        url: "../ajax/categoria.php?op=guardaryeditar",
         type: "POST",
+        url: "../ajax/categoria.php?op=guardaryeditar",
         data: formData,
         contentType: false,
         processData: false,
 
         success: function(datos)
         {                    
-            bootbox.alert(datos);           
-            mostrarform(false);
-            tabla.ajax.reload();
+              bootbox.alert(datos);           
+              mostrarform(false);
+              tabla.ajax.reload();
         }
 
     });
