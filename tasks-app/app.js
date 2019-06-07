@@ -3,6 +3,8 @@ $(document).ready( function() {
 
     $('#task-result').hide();
 
+    fetchTasks();
+
     $('#search').keyup(function(e){
         if($('#search').val()) {
             let search = $('#search').val();
@@ -36,6 +38,7 @@ $(document).ready( function() {
             description: $('#description').val()
         };
         $.post('task-add.php', postData, function (response) {
+            fetchTasks();
             console.log(response);
 
             $('#task-form').trigger('reset');
@@ -44,11 +47,40 @@ $(document).ready( function() {
     });
 
 
-    $.ajax({
-        url: 'task-list.php',
-        type: 'GET',
-        success: function(response) {
-            console.log(response);
+    function fetchTasks() {
+        $.ajax({
+            url: 'task-list.php',
+            type: 'GET',
+            success: function(response) {
+                let tasks = JSON.parse(response);
+                let template = '';
+                tasks.forEach(task => {
+                    template += `
+                        <tr taskId="${task.id}">
+                            <td>${task.id}</td>
+                            <td>${task.name}</td>
+                            <td>${task.description}</td>
+                            <td>
+                                <button class="task-delete btn btn-danger">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+                    `
+                });
+                $('#tasks').html(template); 
+            }
+        })
+    }
+
+    $(document).on('click', '.task-delete', function () {
+        if(confirm('Are you sure you want to delete it?')) {
+            let element = $(this)[0].parentElement.parentElement;
+            let id = $(element).attr('taskId');
+            $.post('task-delete.php', {id}, function (response) {
+                fetchTasks();
+            })
         }
     })
+
 });
