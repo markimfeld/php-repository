@@ -9,7 +9,7 @@ class Coche {
     private $ruedas;
 
 
-    public function __contruct() {
+    public function __construct() {
 
     }
 

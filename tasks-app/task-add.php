@@ -12,5 +12,4 @@ if(isset($_POST['name'])) {
     echo 'Task added successfully!';
 }
 
-
 ?>
