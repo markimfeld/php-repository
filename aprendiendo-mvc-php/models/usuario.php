@@ -1,6 +1,8 @@
 <?php
 
-class Usuario {
+include ('ModeloBase.php');
+
+class Usuario extends ModeloBase {
     private $nombre;
     private $apellidos;
     private $email;
@@ -39,7 +41,5 @@ class Usuario {
         return $this->password;
     }
 
-    public function conseguirTodos() {
-        echo 'Sacando todos los usuarios';
-    }
+    
 }
