@@ -1,8 +1,7 @@
 <h1>Bienvenido a mi web con MVC</h1>
-<?php
-require_once ('controllers/usuario.php');
-require_once 'controllers/nota.php';
 
+<?php
+require_once 'autoload.php';
 /*Lo que estamos haciendo se conoce como controlador frontal*/
 
 if(isset($_GET['controller'])) {
