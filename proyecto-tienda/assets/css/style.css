@@ -1,0 +1,64 @@
+/*GENERALES*/
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background: url(../img/bg.png);
+}
+
+#container {
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px gray;
+    background: white;
+}
+
+a {
+    color: #01B1EA;
+}
+
+a:visited {
+    color: #01B1EA;
+}
+
+a:hover {
+    color: #555555;
+}
+
+
+/*HEADER*/
+#header {
+    height: 145px;
+    background: #F0F0F0;
+}
+
+#logo {
+    padding: 20px;
+    margin-left: 20px;
+    float: left;
+}
+
+#logo img {
+    height: 100px;
+    float: left;
+}
+
+#logo a {
+    float: left;
+    font-size: 30px;
+    letter-spacing: 4px;
+    font-family: 'Open Sans', Helvetica, Arial;
+    text-transform: uppercase;
+    color: #01B1EA;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 25px;
+    margin-left: 15px;
+}
+
+.product img {
+    width: 100px;
+}
