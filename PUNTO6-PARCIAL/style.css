@@ -1,0 +1,43 @@
+html{
+    background: rgb(39, 238, 105);
+}
+
+table{
+    margin: auto;
+    width: 95%;
+}
+
+table,
+th,
+td {
+    border-collapse: collapse;
+    background: #cccaca;
+    border: 2px solid black;
+    
+    overflow-x:auto;
+}
+
+
+td,th {
+    width: 8vw;
+}
+
+td:nth-child(even) {
+    background: rgb(47, 47, 47);
+    color: whitesmoke;
+}
+
+
+td:nth-child(odd) {
+    background: rgb(124, 124, 124);
+    color: black;
+}
+
+td>* {
+    width: 8vw;
+}
+
+.resultados>tbody>tr>td{
+    padding: 5px;
+    width: auto;
+}
