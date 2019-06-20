@@ -26,8 +26,19 @@ class Categoria {
     }
 
     public function getAll() {
-        $sql = "SELECT * FROM categoria";
+        $sql = "SELECT * FROM categoria ORDER BY nombre ASC";
         $categorias = $this->db->query($sql);
         return $categorias;
+    }
+
+    public function save() {
+        $sql = "INSERT INTO categoria VALUES(NULL, '{$this->getNombre()}');";
+        $save = $this->db->query($sql);
+
+        $result = false;
+        if($save) {
+            $result = true;
+        }
+        return $result;
     }
 }
