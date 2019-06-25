@@ -18,7 +18,7 @@ class Categoria {
     }
 
     public function setNombre($nombre) {
-        $this->nombre = $nombre;
+        $this->nombre = $this->db->real_escape_string($nombre);
     }
 
     public function getNombre() {
@@ -26,7 +26,7 @@ class Categoria {
     }
 
     public function getAll() {
-        $sql = "SELECT * FROM categoria ORDER BY nombre ASC";
+        $sql = "SELECT * FROM categoria ORDER BY id DESC";
         $categorias = $this->db->query($sql);
         return $categorias;
     }

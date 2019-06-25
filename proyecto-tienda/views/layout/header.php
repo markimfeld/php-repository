@@ -18,17 +18,14 @@
                 </div>
             </header>
             <!-- menu -->
+            <?php $categorias = Util::showCategorias(); ?>
             <nav id="menu">
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Estilos</a></li>
-                    <li><a href="#">Remeras</a></li>
-                    <li><a href="#">Jeans</a></li>
-                    <li><a href="#">Zapatillas</a></li>
-                    <li><a href="#">Gorras</a></li>
-                    <li><a href="#">Buzos</a></li>
-                    <li><a href="#">Accesorios</a></li>
-                    <li><a href="#">Contactos</a></li>
+                    <li><a href="<?=BASE_URL?>">Inicio</a></li>
+                    <?php while($cat = $categorias->fetch_object()): ?>
+                        <li><a href="#"><?= $cat->nombre; ?></a></li>
+                    <?php endwhile; ?>
+                    <li><a href="<?=BASE_URL?>Contacto/index">Contactos</a></li>
                 </ul>
             </nav>
             <div id="content">
