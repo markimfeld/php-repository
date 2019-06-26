@@ -71,6 +71,44 @@ class ProductoController {
         }
         header("Location:".BASE_URL.'Producto/crear');
     }
+
+    public function editar() {
+        Util::isAdmin();
+        
+        $id = isset($_GET['id']) ? $_GET['id'] : false;
+
+        if($id) {
+            $editar = true;
+            $producto = new Producto();
+            $producto->setId($id);
+            $pro = $producto->getOne();
+            require_once 'views/producto/crear.php';
+        } else {
+            header("Location:".BASE_URL.'Producto/gestion');
+        }
+    }
+
+    public function eliminar() {
+        Util::isAdmin();
+
+        $id = isset($_GET['id']) ? $_GET['id'] : false;
+
+        if($id) {
+            $producto = new Producto();
+            $producto->setId($id);
+            $delete = $producto->delete($id);
+
+
+            if($delete) {
+                $_SESSION['register'] = "complete";
+            } else {
+                $_SESSION['register'] = "failed";
+            }
+        } else {
+            $_SESSION['register'] = "failed";
+        }
+        header("Location:".BASE_URL.'Producto/gestion');
+    }
 }   
 
 ?>

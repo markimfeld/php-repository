@@ -82,7 +82,7 @@ function guardaryeditar(e)
     var formData = new FormData($("#formulario")[0]);
 
     $.ajax({
-        type: "POST",
+        type: "post",
         url: "../ajax/categoria.php?op=guardaryeditar",
         data: formData,
         contentType: false,

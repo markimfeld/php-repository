@@ -87,17 +87,23 @@ class Producto {
         return $productos;
     }
 
+    public function getOne() {
+        $sql = "SELECT * FROM producto WHERE id = {$this->getId()}";
+        $producto = $this->db->query($sql);
+        return $producto->fetch_object();
+    }
+
     public function save() {
         $sql = "INSERT INTO producto VALUES(NULL, {$this->getCategoriaId()},'{$this->getNombre()}', '{$this->getDescripcion()}', {$this->getPrecio()}, {$this->getStock()}, NULL, CURDATE(), '{$this->getImagen()}');";
         $save = $this->db->query($sql);
+        return $save ? true : false;
+    }
 
-
-        $result = false;
-        if($save) {
-            $result = true;
-        }
-        return $result;
-    } 
+    public function delete() {
+        $sql = "DELETE FROM producto WHERE id = $this->id;";
+        $delete = $this->db->query($sql);
+        return $delete ? true : false;
+    }
 }
 
 

@@ -241,6 +241,20 @@ button, .button {
     text-decoration: none;
 }
 
+.button-danger {
+    background: rgb(238, 81, 81);
+    margin-bottom: 5px;
+    border: none;
+}
+
+.btn-edit {
+    background: #33AE3D;
+}
+
+.button-danger:hover {
+    background: gray; 
+}
+
 .button-small {
     width: 150px;
     text-align: center;
