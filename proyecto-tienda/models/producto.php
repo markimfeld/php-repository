@@ -86,9 +86,11 @@ class Producto {
         $productos = $this->db->query($sql);
         return $productos;
     }
-
-    public function getAllCategory($id) {
-        $sql = "SELECT p.* FROM producto p INNER JOIN categoria c ON p.categoria_id = c.id WHERE c.id = $id";
+    
+    public function getAllCategory() {
+        $sql = "SELECT p.* FROM producto p";
+        $sql .= " INNER JOIN categoria c ON p.categoria_id = c.id";
+        $sql .= " WHERE p.categoria_id = {$this->getCategoriaId()} ORDER BY id DESC";
         $productos = $this->db->query($sql);
         return $productos;
     }

@@ -21,7 +21,8 @@ class CategoriaController {
             $categoria->setId($id);
             $cat = $categoria->getOne();
             $producto = new Producto();
-            $productos = $producto->getAllCategory($id);
+            $producto->setCategoriaId($id);
+            $productos = $producto->getAllCategory();
         }
         require_once 'views/categoria/ver.php';
     }
