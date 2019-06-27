@@ -31,6 +31,12 @@ class Categoria {
         return $categorias;
     }
 
+    public function getOne() {
+        $sql = "SELECT * FROM categoria WHERE id = {$this->getId()}";
+        $categoria = $this->db->query($sql);
+        return $categoria->fetch_object();
+    }
+
     public function save() {
         $sql = "INSERT INTO categoria VALUES(NULL, '{$this->getNombre()}');";
         $save = $this->db->query($sql);

@@ -23,7 +23,7 @@
                 <ul>
                     <li><a href="<?=BASE_URL?>">Inicio</a></li>
                     <?php while($cat = $categorias->fetch_object()): ?>
-                        <li><a href="#"><?= $cat->nombre; ?></a></li>
+                        <li><a href="<?=BASE_URL?>Categoria/ver&id=<?=$cat->id;?>"><?= $cat->nombre; ?></a></li>
                     <?php endwhile; ?>
                     <li><a href="<?=BASE_URL?>Contacto/index">Contactos</a></li>
                 </ul>

@@ -5,7 +5,9 @@ require_once 'models/producto.php';
 class ProductoController {
 
     public function index() {
-        // renderizar vista
+        $producto = new Producto();
+        $productos = $producto->getRandom(6);
+        // renderizar vista        
         require_once 'views/producto/destacado.php';
     }
 
@@ -44,20 +46,29 @@ class ProductoController {
                 $producto->setPrecio($precio);
                 $producto->setStock($stock);    
 
-                $file = $_FILES['imagen'];
-                $filename = $file['name'];
-                $mimetype = $file['type'];
+                if(isset($_FILES['imagen'])){
+                    $file = $_FILES['imagen'];
+                    $filename = $file['name'];
+                    $mimetype = $file['type'];
 
-                if($mimetype == "image/jpg" || $mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/gif") {
+                    if($mimetype == "image/jpg" || $mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/gif") {
 
-                    if(!is_dir('uploads/images')) {
-                        mkdir('uploads/images', 0777, true);
+                        // var_dump($file);
+                        // die();
+
+                        if(!is_dir('uploads/images/')) {
+                            mkdir('uploads/images/', 0777, true);
+                        }
+                        $producto->setImagen($filename);
+                        move_uploaded_file($file['tmp_name'], 'uploads/images/'.$filename);   
                     }
-
-                    move_uploaded_file($file['tmp_name'], 'uploads/images/'.$filename);
-                    $producto->setImagen($filename);
                 }
-                $save = $producto->save();
+                if(isset($_GET['id'])) {
+                    $producto->setId($_GET['id']);
+                    $save = $producto->edit();
+                } else {
+                    $save = $producto->save();
+                }
                 if($save) {
                     $_SESSION['register'] = "complete";
                 } else {
@@ -82,6 +93,7 @@ class ProductoController {
             $producto = new Producto();
             $producto->setId($id);
             $pro = $producto->getOne();
+
             require_once 'views/producto/crear.php';
         } else {
             header("Location:".BASE_URL.'Producto/gestion');
