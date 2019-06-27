@@ -322,7 +322,6 @@ button {
 }
 
 /*PRODUCTOS*/
-
 .product {
     width: 30%;
     margin-left: 10px;
@@ -330,6 +329,15 @@ button {
     margin-top: 10px;
     float: left;
     text-align: center;
+}
+
+.product a {
+    color: black;
+    text-decoration: none;
+}
+
+.product a:hover {
+    color: #555;
 }
 
 .product img {
@@ -349,6 +357,42 @@ button {
     margin-bottom: 10px;    
 }
 
+#product-detail {
+    width: 100%;    
+}
+
+#product-detail img {
+    width: 47%;
+    display: block;
+    float: left;
+    margin-right: 10px;  
+}
+
+#product-detail .data {
+    width: 50%;
+    text-align: center;
+    float: right;
+}
+
+.descripcion {
+    margin-top: 30px;
+}
+
+.price {
+    color: #444;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+#product-detail .button {
+    width: 200px;
+    margin: auto; 
+    text-align: center;
+}
+
+#product-detail .button:hover {
+    background: #555;
+}
 /*FOOTER*/
 
 #footer {

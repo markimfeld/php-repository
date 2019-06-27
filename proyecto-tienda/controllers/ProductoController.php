@@ -11,6 +11,17 @@ class ProductoController {
         require_once 'views/producto/destacado.php';
     }
 
+    public function ver() {
+        $id = isset($_GET['id']) ? $_GET['id'] : false;
+
+        if($id) {
+            $producto = new Producto();
+            $producto->setId($id);
+            $pro = $producto->getOne();
+        }
+        require_once 'views/producto/ver.php';
+    }
+
     public function gestion() {
         Util::isAdmin();
         
@@ -52,10 +63,7 @@ class ProductoController {
                     $mimetype = $file['type'];
 
                     if($mimetype == "image/jpg" || $mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/gif") {
-
-                        // var_dump($file);
-                        // die();
-
+                        
                         if(!is_dir('uploads/images/')) {
                             mkdir('uploads/images/', 0777, true);
                         }
