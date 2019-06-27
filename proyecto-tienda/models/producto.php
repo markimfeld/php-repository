@@ -86,6 +86,20 @@ class Producto {
         $productos = $this->db->query($sql);
         return $productos;
     }
+    
+    public function getAllCategory() {
+        $sql = "SELECT p.* FROM producto p";
+        $sql .= " INNER JOIN categoria c ON p.categoria_id = c.id";
+        $sql .= " WHERE p.categoria_id = {$this->getCategoriaId()} ORDER BY id DESC";
+        $productos = $this->db->query($sql);
+        return $productos;
+    }
+
+    public function getRandom($limit) {
+        $sql = "SELECT * FROM producto ORDER BY RAND() LIMIT $limit";
+        $productos = $this->db->query($sql);
+        return $productos;
+    }
 
     public function getOne() {
         $sql = "SELECT * FROM producto WHERE id = {$this->getId()}";
@@ -99,8 +113,18 @@ class Producto {
         return $save ? true : false;
     }
 
+    public function edit() {
+        $sql = "UPDATE producto SET categoria_id = {$this->getCategoriaId()}, nombre = '{$this->getNombre()}', descripcion = '{$this->getDescripcion()}', precio = {$this->getPrecio()}, stock = {$this->getStock()}";  
+        if(!empty($this->getImagen())) {
+            $sql .= ", imagen = '{$this->getImagen()}'";
+        }
+        $sql .= " WHERE id = {$this->getId()}";
+        $save = $this->db->query($sql);
+        return $save ? true : false;
+    }   
+
     public function delete() {
-        $sql = "DELETE FROM producto WHERE id = $this->id;";
+        $sql = "DELETE FROM producto WHERE id = {$this->getId()}";
         $delete = $this->db->query($sql);
         return $delete ? true : false;
     }

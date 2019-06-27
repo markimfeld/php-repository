@@ -1,42 +1,12 @@
 
 
-                
-                    <h1>Productos Destacados</h1>
-                    <div class="product">
-                        <img src="<?= BASE_URL?>assets/img/camiseta.png" alt="Producto">
-                        <h2>Camiseta Azul Ancha<h2>
-                        <p>30 Dolares</p>
-                        <a href="" class="button">Comprar</a>
-                    </div>
-                    <div class="product">
-                        <img src="<?= BASE_URL?>assets/img/camiseta.png" alt="Producto">
-                        <h2>Camiseta Azul Ancha<h2>
-                        <p>30 Dolares</p>
-                        <a href="" class="button">Comprar</a>
-                    </div>
-                    <div class="product">
-                        <img src="<?= BASE_URL?>assets/img/camiseta.png" alt="Producto">
-                        <h2>Camiseta Azul Ancha<h2>
-                        <p>30 Dolares</p>
-                        <a href="" class="button">Comprar</a>
-                    </div>
-                    <div class="product">
-                        <img src="<?= BASE_URL?>assets/img/camiseta.png" alt="Producto">
-                        <h2>Camiseta Azul Ancha<h2>
-                        <p>30 Dolares</p>
-                        <a href="" class="button">Comprar</a>
-                    </div>
-                    <div class="product">
-                        <img src="<?= BASE_URL?>assets/img/camiseta.png" alt="Producto">
-                        <h2>Camiseta Azul Ancha<h2>
-                        <p>30 Dolares</p>
-                        <a href="" class="button">Comprar</a>
-                    </div>
-                    <div class="product">
-                        <img src="<?= BASE_URL?>assets/img/camiseta.png" alt="Producto">
-                        <h2>Camiseta Azul Ancha<h2>
-                        <p>30 Dolares</p>
-                        <a href="" class="button">Comprar</a>
-                    </div>
-         
+<h1>Algunos de nuestros Productos</h1>
 
+<?php while($pro = $productos->fetch_object()): ?>
+    <div class="product">
+        <img src="<?= BASE_URL?>uploads/images/<?=$pro->imagen?>" alt="Imagen Difusor">
+        <h2><?=$pro->nombre?><h2>
+        <p><?=$pro->precio?></p>
+        <a href="" class="button">Comprar</a>
+    </div>
+<?php endwhile; ?>
