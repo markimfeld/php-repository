@@ -4,6 +4,34 @@ require "../config/Conexion.php";
 
 Class Categoria
 {
+	// private $idcategoria;
+	// private $nombre;
+	// private $descripcion;
+
+	// public function setId($idcategoria) {
+	// 	$this->idcategoria = $idcategoria;
+	// }
+
+	// public function getId() {
+	// 	return $this->idcategoria;
+	// }
+
+	// public function setNombre($nombre) {
+	// 	$this->nombre = $nombre;
+	// }
+
+	// public function getNombre() {
+	// 	return $this->nombre;
+	// }
+
+	// public function setDescripcion($descripcion) {
+	// 	$this->descripcion = $descripcion;
+	// }
+
+	// public function getDescripcion() {
+	// 	return $this->descripcion;
+	// }
+
 	//Implementamos nuestro constructor
 	public function __construct()
 	{
@@ -11,11 +39,11 @@ Class Categoria
 	}
 
 	//Implementamos un método para insertar registros
-	public function insertar($nombre,$descripcion)
+	public function insertar($nombre, $descripcion)
 	{
-		$sql="INSERT INTO categoria (nombre,descripcion,condicion)
-		VALUES ('$nombre','$descripcion','1')";
-		return ejecutarConsulta($sql);
+		$sql="INSERT INTO categoria (nombre,descripcion,condicion) VALUES ('$nombre','$descripcion', 1)";
+		$save = ejecutarConsulta($sql);
+		return $save ? true : false;
 	}
 
 	//Implementamos un método para editar registros

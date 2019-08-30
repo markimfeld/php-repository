@@ -1,15 +1,236 @@
-body {
-    background-color: rgb(228, 225, 196);
+/*GENERALES*/
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif, Helvetica, Arial;
 }
 
-.main-container {
-    width: 800px;
+body {
+    background: url(../images/bg.png);
+}
+
+header {
+    height: 130px;
+    background: #2C3E50;
+}
+
+#logo img{
+    width: 11%;
+    padding: 10px;
+    float: left;
+}
+
+header h1 {
+    width: 80%;
+    text-align: center;
+    padding-top: 45px;
+    color: white;
+    margin-left: 60px;
+}
+
+#container {
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px gray;
+    background: white;
+    min-height: 850px;
+}
+
+
+/*TABLA*/
+table {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    border: 1px solid #555;
+}
+
+th {
+    color: white;
+    padding: 5px;
+    background: #2C3E50;
+}
+
+td {
+    border-top: 1px solid #ccc;
+    padding: 5px;
+}
+
+tr:nth-of-type(2n + 1) {
+    background: #ccc;
+}
+/*FIN TABLA*/
+
+/*FORMULARIO*/
+.datos {
+    border: 1px solid gainsboro;
+    margin-bottom: 20px;
+    min-height: 150px;
+    width: 50%;
+    margin: 20px auto;
+}
+
+label,
+input[type="text"],
+input[type="number"],
+select {
+    display: block;
+    width: 95%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    border: 1px solid #c9c9c9;
+    box-shadow: 0 0 2px #ccc inset;
+    background: white;
+    padding: 2px;
+    color: gray;
+    transition: all 300ms;
     margin: auto;
 }
-h1 {
-    text-align: center;
+
+input[type="text"]:focus,
+input[type="number"]:focus, 
+select:focus{
+    border: 1px solid #1AB99A;
+    color: black;
 }
 
-.alumno {
-    width: 400px;
+input[type="submit"] {
+    display: block;
+    margin: 10px;
+    border-radius: 2px;
+    width: auto;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    background: #1AB99A;
+    border: none;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+input[type="submit"]:hover {
+    background: #2C3E50;
+}
+/*FIN FORMULARIO*/
+
+#btn-calcular {
+    margin-top: 20px;
+    height: 50px;
+}
+
+/*Botones enlaces*/
+#btn-calcular a {
+    display: block;
+    text-decoration: none;
+    margin: 10px;
+    border-radius: 2px;
+    width: 10%;
+    text-align: center;
+    margin-left: 104px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    background: #1AB99A;
+    border: none;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+#btn-calcular a:hover {
+    background: #2C3E50;
+}
+
+#btn-buscar {
+    display: block;
+    margin-left: 26px;
+    margin-bottom: 50px;    
+    border-radius: 2px;
+    width: auto;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    background: #1AB99A;
+    border: none;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+#btn-buscar:hover {
+    background: #2C3E50;
+}
+/*Fin botones*/
+
+/*RESULTADOS*/
+#result {
+    border: 1px solid #2C3E50;
+    width: 60%;
+    margin: 100px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px #ccc inset;
+}
+
+#result h1 {
+    border-bottom: 5px solid #1AB99A;
+    padding: 0;
+    width: 28%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#result ul li h3 {
+    font-weight: 300;
+}
+
+#result ul{
+    list-style: none;
+}
+
+#result ul li {
+    border: 1px solid #2C3E50;
+    border-bottom: 0;
+    padding: 5px;
+    overflow: hidden;
+    font-size: 22px;
+}
+
+#result ul li:nth-of-type(7){
+    border-bottom: 1px solid #2C3E50;
+}
+
+
+#result ul li:hover {
+    background: #2C3E50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+
+/*FIN RESULTADOS*/
+
+.fantasma {
+    clear: both;
+    min-height: 250px;
+}
+
+/*FOOTER*/
+
+#footer {
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+    color: white;
+    background: #1A252F;
+    border-top: 4px solid #2C3E50;
 }

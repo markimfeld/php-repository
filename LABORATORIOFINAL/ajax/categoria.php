@@ -4,14 +4,15 @@ require_once "../modelos/Categoria.php";
 
 $categoria=new Categoria();
  
-$idcategoria=isset($_POST["idcategoria"])? limpiarCadena($_POST["idcategoria"]):"";
-$nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
-$descripcion=isset($_POST["descripcion"])? limpiarCadena($_POST["descripcion"]):"";
- 
+
+$idcategoria=isset($_POST["idcategoria"]) ? limpiarCadena($_POST["idcategoria"]): false;
+$nombre=isset($_POST["nombre"]) ? limpiarCadena($_POST["nombre"]): false;
+$descripcion=isset($_POST["descripcion"]) ? limpiarCadena($_POST["descripcion"]): false;
+
 switch ($_GET["op"]){
     case 'guardaryeditar':
         if (empty($idcategoria)){
-            $rspta=$categoria->insertar($nombre,$descripcion);
+            $rspta=$categoria->insertar($nombre, $descripcion);
             echo $rspta ? "Categoría registrada" : "Categoría no se pudo registrar";
         }
         else {
@@ -61,4 +62,8 @@ switch ($_GET["op"]){
         echo json_encode($results);
         break;
 }
+
+
+
+
 ?>

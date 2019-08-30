@@ -7,7 +7,7 @@
     <div class="data">
         <p class="descripcion"><?=$pro->descripcion?></p>
         <p class="price">$ <?=$pro->precio?></p>
-        <a href="" class="button">Comprar</a>
+        <a href="<?=BASE_URL?>Carrito/add&id=<?=$pro->id?>" class="button">Comprar</a>
     </div>
 </div>
 <?php else: ?>
